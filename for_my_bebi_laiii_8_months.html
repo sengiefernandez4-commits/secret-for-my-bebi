@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffe5ed">
+<title>For my bebi laiii ♡</title>
+<style>
+:root{--pink:#f5a9bd;--deep:#b83e68;--cream:#fffaf4;--ink:#633447}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:radial-gradient(circle at 15% 15%,#fff8f1 0 8%,transparent 35%),linear-gradient(135deg,#ffe8ef,#f9c8d6 52%,#fff0e5);overflow-x:hidden}
+.floaties{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.floaty{position:absolute;bottom:-40px;opacity:.7;animation:rise linear infinite;font-size:20px}
+@keyframes rise{to{transform:translateY(-115vh) rotate(360deg);opacity:0}}
+main{position:relative;z-index:1;max-width:760px;margin:auto;padding:26px 16px 50px;text-align:center}
+.tag{display:inline-block;border:1px solid #e9a2b6;border-radius:30px;padding:8px 15px;background:#fff8f3a8;font:12px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase}
+h1{font-size:clamp(2.3rem,9vw,4.8rem);line-height:1.03;margin:20px 0 10px;color:#a8325b;font-weight:normal}
+.subtitle{font-style:italic;font-size:1.1rem;margin:0 auto 22px}
+.card{background:#fffaf4eF;border:1px solid #f2c2ce;border-radius:24px;box-shadow:0 18px 55px #a83c5a20;padding:22px;max-width:620px;margin:0 auto}
+.scene{min-height:235px;display:grid;place-items:center;perspective:900px}
+.envelope{position:relative;width:min(330px,82vw);height:190px;border:0;background:transparent;cursor:pointer;filter:drop-shadow(0 12px 12px #a83c5a22);transition:transform .25s}
+.envelope:hover{transform:translateY(-4px) rotate(-1deg)}
+.env-body{position:absolute;inset:28px 0 0;background:#e995ad;border-radius:7px;overflow:hidden}
+.env-body:before,.env-body:after{content:"";position:absolute;bottom:0;width:0;height:0;border-style:solid;z-index:2}
+.env-body:before{left:0;border-width:0 0 132px 165px;border-color:transparent transparent #f7b9c9 transparent}
+.env-body:after{right:0;border-width:0 165px 132px 0;border-color:transparent transparent #f3a8bc transparent}
+.flap{position:absolute;left:0;top:28px;width:0;height:0;border-left:165px solid transparent;border-right:165px solid transparent;border-top:112px solid #d97896;transform-origin:top;transition:transform .7s;z-index:4}
+.seal{position:absolute;z-index:5;left:50%;top:91px;transform:translateX(-50%);width:42px;height:42px;background:#fff0f3;border-radius:50%;display:grid;place-items:center;color:#b83e68;font-size:22px;transition:opacity .3s}
+.env-hint{font:13px Arial,sans-serif;color:#8d5265;margin-top:-2px}
+.letter{display:none;text-align:left;background:#fffdf8;border:1px solid #f1d5d7;border-radius:18px;padding:clamp(20px,5vw,38px);margin:10px auto 0;line-height:1.85;font-size:1.04rem;box-shadow:inset 0 0 0 6px #fff7f0}
+.letter h2{text-align:center;color:#b33b65;font-weight:normal;font-size:1.8rem;margin:0 0 18px}
+.letter p{margin:0 0 15px}
+.signature{text-align:right;font-style:italic;color:#a8325b;margin-top:22px!important}
+.open .flap{transform:rotateX(180deg);z-index:1}
+.open .seal{opacity:0}
+.open .envelope{animation:fadeEnvelope .65s forwards}
+@keyframes fadeEnvelope{to{opacity:.15;transform:translateY(24px) scale(.9)}}
+.open .letter{display:block;animation:letterUp .8s both}
+@keyframes letterUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+.buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:20px 0 4px}
+button.action{border:0;border-radius:999px;padding:12px 18px;background:#b83e68;color:white;font:14px Arial,sans-serif;box-shadow:0 6px 16px #b83e6826;cursor:pointer}
+button.action.secondary{background:#fff0f3;color:#9f3158;border:1px solid #edb4c4}
+button.action:active{transform:scale(.97)}
+.hidden-note{display:none;background:#fff0f3;border-radius:14px;padding:15px;margin-top:14px;line-height:1.7;font-style:italic}
+.hidden-note.show{display:block;animation:letterUp .5s both}
+footer{font:12px Arial,sans-serif;letter-spacing:1px;color:#9e5b70;margin-top:24px}
+.pop{position:fixed;z-index:10;pointer-events:none;animation:pop 1.5s ease-out forwards;font-size:22px}
+@keyframes pop{0%{transform:translate(0,0) scale(.5);opacity:0}15%{opacity:1}100%{transform:translate(var(--x),var(--y)) rotate(var(--r)) scale(1.3);opacity:0}}
+@media(max-width:480px){.card{padding:14px}.scene{min-height:205px}.envelope{transform:scale(.9)}.open .envelope{animation:fadeEnvelope .65s forwards}.letter{font-size:1rem}}
+</style>
+</head>
+<body>
+<div class="floaties" id="floaties"></div>
+<main>
+  <div class="tag">a little something for you ♡</div>
+  <h1>Happy 8 Months,<br>my bebi laiii</h1>
+  <p class="subtitle">to my cutie pie, my favorite person, my home ♡</p>
+  <section class="card" id="card">
+    <div class="scene">
+      <button class="envelope" id="envelope" aria-label="Open your letter">
+        <div class="env-body"></div><div class="flap"></div><div class="seal">♥</div>
+      </button>
+    </div>
+    <div class="env-hint" id="hint">tap the little envelope, bebiii ♡</div>
+    <article class="letter" id="letter">
+      <h2>To my bebiii laiii ♡</h2>
+      <p>Hiiii bebiiii, happy 8 months sa atinnn!! 🥹💗 Likeee, eight months na tayo?? Huhu, ang bilis pero at the same time ang dami na rin nating memories. And honestly, kahit simpleng araw lang, mas nagiging special siya dahil nandiyan ka.</p>
+      <p>Laiiii, thank you for being you. Thank you sa lambing mo, sa kulit mo, sa mga little things na ginagawa mo na baka hindi mo napapansin pero sobrang nagpapasaya sa’kin. You make me feel loved in ways na hindi ko minsan alam kung paano ie-explain. Basta kapag ikaw, iba talaga. Ikaw yung taong gusto kong kwentuhan kahit wala namang importanteng nangyari, yung gusto kong sabihan ng random thoughts ko, and yung hinahanap ko kapag may good news or kahit bad day ako.</p>
+      <p>My cutie pieee, I hope you know na you don’t have to be perfect for me to love you. You can be makulit, sleepy, clingy, tahimik, moody, or kahit super random ka na naman HAHAHA. I love the real you, laiii. Hindi lang yung happy version mo, but also the days na pagod ka or hindi ka okay. I want you to feel safe with me, na you can tell me what’s on your mind and you don’t always have to pretend na okay ka.</p>
+      <p>Of course, hindi naman tayo magiging perfect all the time. May times na baka magka-misunderstanding tayo or hindi agad natin maintindihan yung isa’t isa. Pero I hope we keep choosing to listen, to be honest, and to fix things together. I don’t want us to give up just because may hard days. I want us to keep learning how to love each other better, one day at a time.</p>
+      <p>Bebiii, kahit may distance or may mga araw na miss na miss na kita, I’m still thankful na ikaw yung person na nakilala ko. I wish I could give you the biggest hug right now, kiss your forehead, and tell you in person how much you mean to me. For now, sana kahit itong little website makes you smile kahit konti. Imagine mo na lang na may kasamang super tight hug from me, okayyy? 🫂💗</p>
+      <p>Thank you for these eight months, laiii. Thank you for the memories we already made and for the little moments we still have ahead of us. I’m excited for more kwentos, more laughs, more lambing, more pictures, more inside jokes, and more ordinary days with you. I hope I can keep making you feel as loved and appreciated as you make me feel.</p>
+      <p>I love you so so much, my bebiii. More than this letter can explain, actually. Happy 8 months sa atin, cutie pie kooo. Please take care of yourself for me, eat properly, rest when you need to, and remember na may isang tao dito na proud sa’yo and always rooting for you. Mwaaaa! 😚💗</p>
+      <p class="signature">always yours,<br>your person ♡</p>
+    </article>
+    <div class="buttons">
+      <button class="action" id="openBtn">Open my letter 💌</button>
+      <button class="action secondary" id="surpriseBtn">one more thing, bebiii ✨</button>
+    </div>
+    <div class="hidden-note" id="note">If I could choose again, I’d still want to get to know you, make you laugh, annoy you a little HAHAHA, and love you all over again. Ikaw pa rin, laiii. Always remember that, okay? ♡ 🥹💗</div>
+  </section>
+  <footer>made with lots of love, just for you · 8 months ♡</footer>
+</main>
+<script>
+const emojis=['♡','💗','🌸','✿','💕','✨'];
+const floaties=document.getElementById('floaties');
+for(let i=0;i<22;i++){const s=document.createElement('span');s.className='floaty';s.textContent=emojis[Math.floor(Math.random()*emojis.length)];s.style.left=Math.random()*100+'%';s.style.animationDuration=(9+Math.random()*13)+'s';s.style.animationDelay=(-Math.random()*18)+'s';s.style.fontSize=(12+Math.random()*17)+'px';floaties.appendChild(s)}
+let opened=false;
+function burst(count=28){for(let i=0;i<count;i++){const p=document.createElement('span');p.className='pop';p.textContent=emojis[Math.floor(Math.random()*emojis.length)];p.style.left=(window.innerWidth*.5+(Math.random()-.5)*90)+'px';p.style.top=(window.innerHeight*.48+(Math.random()-.5)*70)+'px';p.style.setProperty('--x',((Math.random()-.5)*window.innerWidth*.85)+'px');p.style.setProperty('--y',(-40-Math.random()*window.innerHeight*.65)+'px');p.style.setProperty('--r',((Math.random()-.5)*100)+'deg');document.body.appendChild(p);setTimeout(()=>p.remove(),1600)}}
+function openLetter(){if(opened)return;opened=true;document.getElementById('card').classList.add('open');document.getElementById('hint').textContent='surpriseee, bebiii. this is all for you ♡';document.getElementById('openBtn').textContent='Letter opened ♡';burst(34)}
+document.getElementById('envelope').addEventListener('click',openLetter);
+document.getElementById('openBtn').addEventListener('click',openLetter);
+document.getElementById('surpriseBtn').addEventListener('click',()=>{document.getElementById('note').classList.toggle('show');burst(24)});
+document.addEventListener('click',e=>{if(e.target.closest('button')){for(let i=0;i<5;i++){const h=document.createElement('span');h.className='pop';h.textContent='♡';h.style.left=e.clientX+'px';h.style.top=e.clientY+'px';h.style.setProperty('--x',((Math.random()-.5)*120)+'px');h.style.setProperty('--y',(-40-Math.random()*120)+'px');h.style.setProperty('--r','20deg');document.body.appendChild(h);setTimeout(()=>h.remove(),1500)}}});
+</script>
+</body>
+</html>
